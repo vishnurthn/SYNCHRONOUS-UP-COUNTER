@@ -27,20 +27,51 @@ The next flip-flop need only “recognize” that the first flip-flop’s Q outp
 However, the remaining flip-flops should be made ready to toggle only when all lower-order output bits are “high,” thus the need for AND gates.
 
 **Procedure**
+```
+1.Initialize the shift register to a known state (e.g., all zeros).
 
-/* write all the steps invloved */
+2.Input a bit serially into the shift register.
 
+3.Shift the contents of the register one position to the right (or left).
+
+4.Output the shifted bit from the last stage of the register.
+
+5.Repeat steps 2-4 for each bit you want to input and shift.
+```
 **PROGRAM**
-
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. 
-
-Developed by: RegisterNumber:
-*/
+```
+module exp11(out,clk,rstn);
+input clk,rstn;
+output reg [3:0]out;
+always @ (posedge clk)
+begin
+   if(!rstn)
+     out<=0;
+   else 
+     out <= out+1;
+end
+endmodule
+```
+```
+Developed by : VISHNU RATHAN B
+RegisterNumber : 24001855
+```
 
 **RTL LOGIC UP COUNTER**
 
+![Screenshot 2024-12-19 132326](https://github.com/user-attachments/assets/4c21d54f-3554-4302-9d68-4b5e575e086f)
+
+
 **TIMING DIAGRAM FOR IP COUNTER**
+
+![Screenshot 2024-12-19 132425](https://github.com/user-attachments/assets/152271c9-4c66-49ae-a0e7-83bf2630dd0e)
+
 
 **TRUTH TABLE**
 
+![Screenshot 2024-12-19 132453](https://github.com/user-attachments/assets/ab76c6cf-a250-4a59-a423-008e94659b58)
+
+
 **RESULTS**
+
+Thus the program executed successfully.
